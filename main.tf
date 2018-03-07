@@ -3,12 +3,6 @@
 resource "aws_elb" "default" {
   availability_zones = "${data.aws_availability_zones.available.names}"
 
-  //  access_logs {
-  //    bucket = "foo"
-  //    bucket_prefix = "bar"
-  //    interval = 60
-  //  }
-
   listener {
     instance_port = 80
     instance_protocol = "http"
@@ -24,6 +18,14 @@ resource "aws_elb" "default" {
     ssl_certificate_id = "${var.ssl_certificate_id}"
   }
 
+  instances = "${var.instances}"
+
+  //  access_logs {
+  //    bucket = "foo"
+  //    bucket_prefix = "bar"
+  //    interval = 60
+  //  }
+
   health_check {
     healthy_threshold = 2
     unhealthy_threshold = 2
@@ -32,12 +34,8 @@ resource "aws_elb" "default" {
     timeout = 3
   }
 
-  instances = [
-    "${aws_instance.foo.id}"
-  ]
-
   cross_zone_load_balancing = true
-  idle_timeout = 400
+  idle_timeout = 60
   connection_draining = true
-  connection_draining_timeout = 400
+  connection_draining_timeout = 300
 }

@@ -4,7 +4,13 @@ variable region {
   default = "us-east-1"
 }
 
+variable "instances" {
+  type = "list"
+  //default = []
+  description = "A list of instance ids to place in the ELB pool."
+}
+
 variable "ssl_certificate_id" {
-  default = ""
+  //default = ""
   description = "The ARN of an SSL certificate you have uploaded to AWS IAM."
 }
