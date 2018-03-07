@@ -2,4 +2,4 @@ instances = [
   "sample"
 ]
 
-ssl_certificate_id = "sample"
+certificate_id = "sample"

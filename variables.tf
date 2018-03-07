@@ -10,7 +10,7 @@ variable "instances" {
   description = "A list of instance ids to place in the ELB pool."
 }
 
-variable "ssl_certificate_id" {
+variable "certificate_id" {
   //default = ""
   description = "The ARN of an SSL certificate you have uploaded to AWS IAM."
 }
