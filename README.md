@@ -1,4 +1,4 @@
-# terraform-aws-beanstalk
+# terraform-aws-elb
 
 ## usage
 ```
