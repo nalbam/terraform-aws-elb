@@ -1,9 +1,9 @@
 # Elastic Load Balancer
 
 resource "aws_elb" "default" {
-  availability_zones = [
-    "${data.aws_availability_zones.available.names}"
-  ]
+  //  availability_zones = [
+  //    "${data.aws_availability_zones.available.names}"
+  //  ]
 
   listener {
     instance_port = 80
