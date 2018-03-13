@@ -58,5 +58,5 @@ resource "aws_elb_attachment" "default" {
   elb = "${aws_elb.default.id}"
 
   count = "${length(var.instances)}"
-  instance = "${var.instances[count.index]}"
+  instance = "${element(var.instances, count.index)}"
 }
