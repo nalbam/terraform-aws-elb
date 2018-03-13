@@ -54,7 +54,7 @@ resource "aws_elb" "default" {
   connection_draining_timeout = 300
 }
 
-resource "aws_elb_attachment" "baz" {
+resource "aws_elb_attachment" "default" {
   elb = "${aws_elb.default.id}"
 
   count = "${length(var.instances)}"
