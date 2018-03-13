@@ -20,9 +20,9 @@ resource "aws_elb" "default" {
     ssl_certificate_id = "${var.certificate_id}"
   }
 
-  instances = [
-    "${var.instances}"
-  ]
+  //  instances = [
+  //    "${var.instances}"
+  //  ]
 
   //  vpc_id = "${var.vpc_id}"
 
@@ -52,4 +52,11 @@ resource "aws_elb" "default" {
   idle_timeout = 60
   connection_draining = true
   connection_draining_timeout = 300
+}
+
+resource "aws_elb_attachment" "baz" {
+  elb = "${aws_elb.default.id}"
+
+  count = "${length(var.instances)}"
+  instance = "${var.instances[count.index]}"
 }
