@@ -38,7 +38,7 @@ variable "certificate_id" {
 }
 
 variable "health_check" {
-  type = map
-  //default={}
+  type = "list"
+  default = []
   description = "A health_check block."
 }

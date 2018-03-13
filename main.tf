@@ -45,7 +45,9 @@ resource "aws_elb" "default" {
   //    interval = 60
   //  }
 
-  health_check = "${var.health_check}"
+  health_check = [
+    "${var.health_check}"
+  ]
 
   cross_zone_load_balancing = true
   idle_timeout = 60
@@ -58,8 +60,4 @@ resource "aws_elb_attachment" "default" {
 
   count = "${length(var.instances)}"
   instance = "${element(var.instances, count.index)}"
-
-  depends_on = [
-    "aws_elb.default",
-  ]
 }
