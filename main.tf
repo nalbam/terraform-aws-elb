@@ -24,6 +24,8 @@ resource "aws_elb" "default" {
     "${var.instances}"
   ]
 
+  //  vpc_id = "${var.vpc_id}"
+
   subnets = [
     "${var.subnets}"
   ]
