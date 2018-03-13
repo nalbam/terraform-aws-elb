@@ -18,6 +18,10 @@ resource "aws_elb" "default" {
     ssl_certificate_id = "${var.https_certificate}"
   }
 
+  instances = [
+    "${var.instances}"
+  ]
+
   subnets = [
     "${var.subnets}"
   ]
@@ -46,9 +50,9 @@ resource "aws_elb" "default" {
   connection_draining_timeout = "${var.connection_draining_timeout}"
 }
 
-resource "aws_elb_attachment" "default" {
-  elb = "${aws_elb.default.id}"
-
-  count = "${length(var.instances)}"
-  instance = "${element(var.instances, count.index)}"
-}
+//resource "aws_elb_attachment" "default" {
+//  elb = "${aws_elb.default.id}"
+//
+//  count = "${length(var.instances)}"
+//  instance = "${element(var.instances, count.index)}"
+//}
