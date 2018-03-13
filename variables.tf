@@ -20,6 +20,12 @@ variable "subnets" {
   description = "List of subnets to place Elastic Load Balancer"
 }
 
+variable "security_groups" {
+  type = "list"
+  //default = []
+  description = "List of security_groups to place Elastic Load Balancer"
+}
+
 variable "certificate_id" {
   //default = ""
   description = "The ARN of an SSL certificate you have uploaded to AWS IAM."

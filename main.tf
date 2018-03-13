@@ -30,6 +30,10 @@ resource "aws_elb" "default" {
     "${var.subnets}"
   ]
 
+  security_groups = [
+    "${var.security_groups}"
+  ]
+
   //  access_logs {
   //    bucket = "foo"
   //    bucket_prefix = "bar"

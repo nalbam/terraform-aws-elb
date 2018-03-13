@@ -10,6 +10,14 @@ module "demo-dev" {
     "i-sample"
   ]
 
+  subnets = [
+    "i-sample"
+  ]
+
+  security_groups = [
+    "i-sample"
+  ]
+
   certificate_id = "${data.aws_acm_certificate.default.arn}"
 }
 ```
