@@ -24,6 +24,10 @@ resource "aws_elb" "default" {
     "${var.instances}"
   ]
 
+  subnets = [
+    "${var.subnets}"
+  ]
+
   //  access_logs {
   //    bucket = "foo"
   //    bucket_prefix = "bar"

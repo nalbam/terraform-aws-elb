@@ -10,6 +10,12 @@ variable "instances" {
   description = "A list of instance ids to place in the ELB pool."
 }
 
+variable "subnets" {
+  type = "list"
+  //default = []
+  description = "List of subnets to place Elastic Load Balancer"
+}
+
 variable "certificate_id" {
   //default = ""
   description = "The ARN of an SSL certificate you have uploaded to AWS IAM."
