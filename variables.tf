@@ -10,7 +10,14 @@ variable name {
 
 variable "listener" {
   type = "list"
-  //default = []
+  default = [
+    {
+      instance_port = 80
+      instance_protocol = "http"
+      lb_port = 80
+      lb_protocol = "http"
+    }
+  ]
   description = "A list of listener blocks."
 }
 
@@ -34,6 +41,14 @@ variable "security_groups" {
 
 variable "health_check" {
   type = "list"
-  default = []
+  default = [
+    {
+      healthy_threshold = 2
+      unhealthy_threshold = 2
+      target = "HTTP:80/"
+      interval = 30
+      timeout = 3
+    }
+  ]
   description = "A health_check block."
 }
