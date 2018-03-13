@@ -20,13 +20,9 @@ resource "aws_elb" "default" {
     ssl_certificate_id = "${var.certificate_id}"
   }
 
-  subnets = [
-    "${var.subnets}"
-  ]
+  subnets = "${var.subnets}"
 
-  security_groups = [
-    "${var.security_groups}"
-  ]
+  security_groups = "${var.security_groups}"
 
   //  access_logs {
   //    bucket = "foo"
