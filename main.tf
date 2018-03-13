@@ -5,20 +5,31 @@ resource "aws_elb" "default" {
   //    "${data.aws_availability_zones.available.names}"
   //  ]
 
-  listener = {
-    instance_port = 80
-    instance_protocol = "http"
-    lb_port = 80
-    lb_protocol = "http"
-  }
+  name = "${var.name}"
 
-  listener = {
-    instance_port = 80
-    instance_protocol = "http"
-    lb_port = 443
-    lb_protocol = "https"
-    ssl_certificate_id = "${var.certificate_id}"
-  }
+  listener = [
+    {
+      instance_port = 80
+      instance_protocol = "http"
+      lb_port = 80
+      lb_protocol = "http"
+    },
+    {
+      instance_port = 80
+      instance_protocol = "http"
+      lb_port = 443
+      lb_protocol = "https"
+      ssl_certificate_id = "${var.certificate_id}"
+    }
+  ]
+
+  //  listener = {
+  //    instance_port = 80
+  //    instance_protocol = "http"
+  //    lb_port = 443
+  //    lb_protocol = "https"
+  //    ssl_certificate_id = "${var.certificate_id}"
+  //  }
 
   subnets = [
     "${var.subnets}"
@@ -34,13 +45,7 @@ resource "aws_elb" "default" {
   //    interval = 60
   //  }
 
-  health_check = {
-    healthy_threshold = 2
-    unhealthy_threshold = 2
-    target = "HTTP:80/"
-    interval = 30
-    timeout = 3
-  }
+  health_check = "${var.health_check}"
 
   cross_zone_load_balancing = true
   idle_timeout = 60

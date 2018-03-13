@@ -1,3 +1,5 @@
+name = "sample"
+
 instances = [
   "i-sample1",
   "i-sample2",

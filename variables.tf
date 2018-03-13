@@ -4,6 +4,16 @@ variable region {
   default = "us-east-1"
 }
 
+variable name {
+  //default = ""
+}
+
+//variable "listener" {
+//  type = list
+//  //default={}
+//  description = "A list of listener blocks."
+//}
+
 variable "instances" {
   type = "list"
   //default = []
@@ -25,4 +35,10 @@ variable "security_groups" {
 variable "certificate_id" {
   //default = ""
   description = "The ARN of an SSL certificate you have uploaded to AWS IAM."
+}
+
+variable "health_check" {
+  type = map
+  //default={}
+  description = "A health_check block."
 }
