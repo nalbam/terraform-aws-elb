@@ -3,9 +3,20 @@
 resource "aws_elb" "default" {
   name = "${var.name}"
 
-  listener = [
-    "${var.listener}"
-  ]
+  listener {
+    instance_port = "${var.http_port}"
+    instance_protocol = "${var.http_protocol}"
+    lb_port = "${var.http_lb_port}"
+    lb_protocol = "${var.http_lb_protocol}"
+  }
+
+  listener {
+    instance_port = "${var.https_port}"
+    instance_protocol = "${var.https_protocol}"
+    lb_port = "${var.https_lb_port}"
+    lb_protocol = "${var.https_lb_protocol}"
+    ssl_certificate_id = "${var.https_certificate}"
+  }
 
   subnets = [
     "${var.subnets}"
@@ -21,9 +32,13 @@ resource "aws_elb" "default" {
   //    interval = 60
   //  }
 
-  health_check = [
-    "${var.health_check}"
-  ]
+  health_check {
+    healthy_threshold = "${var.healthy_threshold}"
+    unhealthy_threshold = "${var.unhealthy_threshold}"
+    target = "${var.health_target}"
+    interval = "${var.health_interval}"
+    timeout = "${var.health_timeout}"
+  }
 
   cross_zone_load_balancing = true
   idle_timeout = 60

@@ -8,17 +8,40 @@ variable name {
   //default = ""
 }
 
-variable "listener" {
-  type = "list"
-  default = [
-    {
-      instance_port = 80
-      instance_protocol = "http"
-      lb_port = 80
-      lb_protocol = "http"
-    }
-  ]
-  description = "A list of listener blocks."
+variable "http_port" {
+  default = 80
+}
+
+variable "http_protocol" {
+  default = "http"
+}
+
+variable "http_lb_port" {
+  default = 80
+}
+
+variable "http_lb_protocol" {
+  default = "http"
+}
+
+variable "https_port" {
+  default = 80
+}
+
+variable "https_protocol" {
+  default = "http"
+}
+
+variable "https_lb_port" {
+  default = 443
+}
+
+variable "https_lb_protocol" {
+  default = "https"
+}
+
+variable "https_certificate" {
+  //default = ""
 }
 
 variable "instances" {
@@ -39,16 +62,22 @@ variable "security_groups" {
   description = "List of security_groups to place Elastic Load Balancer"
 }
 
-variable "health_check" {
-  type = "list"
-  default = [
-    {
-      healthy_threshold = 2
-      unhealthy_threshold = 2
-      target = "HTTP:80/"
-      interval = 30
-      timeout = 3
-    }
-  ]
-  description = "A health_check block."
+variable "healthy_threshold" {
+  default = 2
+}
+
+variable "unhealthy_threshold" {
+  default = 2
+}
+
+variable "health_target" {
+  default = "HTTP:80/"
+}
+
+variable "health_interval" {
+  default = 30
+}
+
+variable "health_timeout" {
+  default = 3
 }
