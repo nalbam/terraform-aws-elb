@@ -7,8 +7,9 @@ module "demo-dev" {
   region = "${var.region}"
 
   instances = [
-    "i-0d7f3b12763d2a73b"
+    "i-sample"
   ]
+
   certificate_id = "${data.aws_acm_certificate.default.arn}"
 }
 ```
