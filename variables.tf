@@ -9,7 +9,7 @@ variable name {
 }
 
 variable "listener" {
-  type = list
+  type = "list"
   //default = []
   description = "A list of listener blocks."
 }
