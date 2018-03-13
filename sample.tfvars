@@ -3,8 +3,6 @@ instances = [
   "i-sample2",
 ]
 
-//vpc_id = "vpc-sample"
-
 subnets = [
   "sub-sample1",
   "sub-sample2",

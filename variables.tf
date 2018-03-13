@@ -10,10 +10,6 @@ variable "instances" {
   description = "A list of instance ids to place in the ELB pool."
 }
 
-//variable vpc_id {
-//  //default = ""
-//}
-
 variable "subnets" {
   type = "list"
   //default = []

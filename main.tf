@@ -20,12 +20,6 @@ resource "aws_elb" "default" {
     ssl_certificate_id = "${var.certificate_id}"
   }
 
-  //  instances = [
-  //    "${var.instances}"
-  //  ]
-
-  //  vpc_id = "${var.vpc_id}"
-
   subnets = [
     "${var.subnets}"
   ]
