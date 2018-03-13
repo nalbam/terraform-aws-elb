@@ -2,7 +2,7 @@
 
 ## usage
 ```
-module "demo-dev" {
+module "demo-elb" {
   source = "git::https://gitlab.com/nalbam/terraform-aws-elb.git"
   region = "${var.region}"
 
@@ -18,6 +18,6 @@ module "demo-dev" {
     "i-sample"
   ]
 
-  certificate_id = "${data.aws_acm_certificate.default.arn}"
+  https_certificate = "${data.aws_acm_certificate.default.arn}"
 }
 ```

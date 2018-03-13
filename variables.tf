@@ -81,3 +81,19 @@ variable "health_interval" {
 variable "health_timeout" {
   default = 3
 }
+
+variable "cross_zone_load_balancing" {
+  default = true
+}
+
+variable "idle_timeout" {
+  default = 60
+}
+
+variable "connection_draining" {
+  default = true
+}
+
+variable "connection_draining_timeout" {
+  default = 300
+}

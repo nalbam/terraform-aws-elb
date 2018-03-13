@@ -40,10 +40,10 @@ resource "aws_elb" "default" {
     timeout = "${var.health_timeout}"
   }
 
-  cross_zone_load_balancing = true
-  idle_timeout = 60
-  connection_draining = true
-  connection_draining_timeout = 300
+  cross_zone_load_balancing = "${var.cross_zone_load_balancing}"
+  idle_timeout = "${var.idle_timeout}"
+  connection_draining = "${var.connection_draining}"
+  connection_draining_timeout = "${var.connection_draining_timeout}"
 }
 
 resource "aws_elb_attachment" "default" {
