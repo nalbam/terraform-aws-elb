@@ -5,14 +5,14 @@ resource "aws_elb" "default" {
   //    "${data.aws_availability_zones.available.names}"
   //  ]
 
-  listener {
+  listener = {
     instance_port = 80
     instance_protocol = "http"
     lb_port = 80
     lb_protocol = "http"
   }
 
-  listener {
+  listener = {
     instance_port = 80
     instance_protocol = "http"
     lb_port = 443
@@ -34,7 +34,7 @@ resource "aws_elb" "default" {
   //    interval = 60
   //  }
 
-  health_check {
+  health_check = {
     healthy_threshold = 2
     unhealthy_threshold = 2
     target = "HTTP:80/"
