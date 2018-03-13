@@ -53,4 +53,8 @@ resource "aws_elb_attachment" "default" {
 
   count = "${length(var.instances)}"
   instance = "${element(var.instances, count.index)}"
+
+  depends_on = [
+    "aws_elb.default",
+  ]
 }
