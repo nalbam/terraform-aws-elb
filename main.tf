@@ -15,7 +15,7 @@ resource "aws_elb" "default" {
     instance_protocol = "${var.https_protocol}"
     lb_port = "${var.https_lb_port}"
     lb_protocol = "${var.https_lb_protocol}"
-    ssl_certificate_id = "${var.https_certificate}"
+    ssl_certificate_id = "${var.certificate_arn}"
   }
 
   instances = [

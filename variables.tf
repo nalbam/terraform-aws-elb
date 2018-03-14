@@ -38,7 +38,7 @@ variable "https_lb_protocol" {
   default = "https"
 }
 
-variable "https_certificate" {
+variable "certificate_arn" {
   //default = ""
 }
 
