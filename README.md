@@ -1,7 +1,8 @@
 # terraform-aws-elb
 
 ## usage
-```
+
+```hcl
 module "sample" {
   source = "git::https://github.com/nalbam/terraform-aws-elb.git"
   region = "${var.region}"
