@@ -1,8 +1,8 @@
-variable region {
+variable "region" {
   default = "us-east-1"
 }
 
-variable name {
+variable "name" {
   //default = ""
 }
 
@@ -43,21 +43,21 @@ variable "certificate_arn" {
 }
 
 variable "instances" {
-  type = "list"
+  type = list(string)
 
   //default = []
   description = "A list of instance ids to place in the ELB pool."
 }
 
 variable "subnets" {
-  type = "list"
+  type = list(string)
 
   //default = []
   description = "List of subnets to place Elastic Load Balancer"
 }
 
 variable "security_groups" {
-  type = "list"
+  type = list(string)
 
   //default = []
   description = "List of security_groups to place Elastic Load Balancer"
